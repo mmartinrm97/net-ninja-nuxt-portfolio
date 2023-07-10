@@ -19,12 +19,12 @@
             <img
               alt="Your Company"
               class="block h-8 w-auto lg:hidden"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+              src="~/assets/images/mark.svg"
             />
             <img
               alt="Your Company"
               class="hidden h-8 w-auto lg:block"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+              src="~/assets/images/mark.svg"
             />
           </div>
           <div class="hidden sm:ml-6 sm:block">
