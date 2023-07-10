@@ -6,15 +6,14 @@
     </p>
   </section>
   <section class="flex flex-col md:flex-row">
-    <div class="md:w-3/4 text-justify">
+    <div class="text-justify md:w-3/4">
       <h2 class="mt-8 text-3xl font-bold">My Story</h2>
       <p class="py-2 text-lg">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut culpa
-        cupiditate doloribus ea eos minus reiciendis sint voluptas? At non
-        repudiandae sunt. A adipisci alias aspernatur commodi deleniti
-        doloremque dolorum eligendi eum hic itaque minus modi molestiae nesciunt
-        nobis nostrum perspiciatis quae quaerat quasi, rem sapiente sint soluta
-        veniam vero.
+        Bachiller en la carrera profesional de Ingeniería de Sistemas de la
+        Universidad Nacional de Cañete, con disposición a cumplir con las
+        distintas funciones, obligaciones y normas laborales que tengan
+        establecidas. Me presento con gran entusiasmo a esta institución para
+        formar parte del cumplimiento de las metas planteadas en su misión.
       </p>
       <p class="py-2 text-lg">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. At beatae et
@@ -27,16 +26,26 @@
         veritatis!
       </p>
     </div>
-    <div class="w-1/2 md:max-w-sm mx-auto p-8 flex items-center">
-      <img src="~/assets/images/Foto-Miguel-Ramos-Miller.png" alt="" class="w-full  object-cover rounded-2xl">
+    <div class="mx-auto flex w-1/2 items-center p-8 md:max-w-sm">
+      <img
+        alt=""
+        class="w-full rounded-2xl object-cover"
+        src="~/assets/images/Foto-Miguel-Ramos-Miller.png"
+      />
     </div>
   </section>
   <section>
-    <h2 class="text-3xl font-bold mt-8">Latest Blog Posts</h2>
+    <h2 class="mt-8 text-3xl font-bold">Latest Blog Posts</h2>
+    <section class="grid md:grid-cols-3 mt-8 gap-10">
+      <ThePosts :posts="posts"/>
+    </section>
   </section>
 </template>
 
 <script setup>
+const { data: posts } = await useAsyncData("latest-posts", () =>
+  queryContent("/blog").sort({ data: 1 }).limit(3).find()
+);
 </script>
 
 <style lang="scss" scoped></style>
